@@ -110,9 +110,9 @@
             this.label_imposto.Font = new System.Drawing.Font("Monospac821 BT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_imposto.Location = new System.Drawing.Point(12, 485);
             this.label_imposto.Name = "label_imposto";
-            this.label_imposto.Size = new System.Drawing.Size(87, 22);
+            this.label_imposto.Size = new System.Drawing.Size(142, 22);
             this.label_imposto.TabIndex = 36;
-            this.label_imposto.Text = "Imposto";
+            this.label_imposto.Text = "Imposto  (%)";
             // 
             // textBox_Desconto
             // 
@@ -141,9 +141,9 @@
             this.label_desconto.Font = new System.Drawing.Font("Monospac821 BT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_desconto.Location = new System.Drawing.Point(12, 451);
             this.label_desconto.Name = "label_desconto";
-            this.label_desconto.Size = new System.Drawing.Size(98, 22);
+            this.label_desconto.Size = new System.Drawing.Size(142, 22);
             this.label_desconto.TabIndex = 34;
-            this.label_desconto.Text = "Desconto";
+            this.label_desconto.Text = "Desconto (%)";
             // 
             // textBox_SubTotal
             // 
