@@ -86,7 +86,7 @@ namespace Sistema_Braz.DAL_Classes
             SqlConnection conexao = new SqlConnection(myconnstring);
             try
             {
-         
+
                 string sql = "UPDATE Table_produto SET nome=@nome,categoria=@categoria,descricao=@descricao,avaliacao=@avaliacao,data_add=@data_add,user_add=@user_add where id=@id";
                 SqlCommand cmd = new SqlCommand(sql, conexao);
                 cmd.Parameters.AddWithValue("@id", p.id);
@@ -178,7 +178,36 @@ namespace Sistema_Braz.DAL_Classes
         #region Pesquisar Categoria transação
         public produtos_BLL Pesquisar_produto_transacao(string keywords)
         {
-            produtos_BLL produtos_BLL = new produtos_BLL();     
+            produtos_BLL produtos_BLL = new produtos_BLL();
+            SqlConnection conexao = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "Select id from Table_produto WHERE  nome= '" + keywords + "'";
+                SqlCommand cmd = new SqlCommand(sql, conexao);
+                SqlDataAdapter adaptar = new SqlDataAdapter(cmd);
+                conexao.Open();
+                adaptar.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    produtos_BLL.id = int.Parse(dt.Rows[0]["ID"].ToString());
+                }
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            return produtos_BLL;
+        }
+        #endregion
+        public produtos_BLL Pesquisar_produto(string keywords)
+        {
+            produtos_BLL produtos_BLL = new produtos_BLL();
             SqlConnection conexao = new SqlConnection(myconnstring);
             DataTable dt = new DataTable();
             try
@@ -205,8 +234,6 @@ namespace Sistema_Braz.DAL_Classes
                 conexao.Close();
             }
             return produtos_BLL;
-
         }
-        #endregion
     }
 }

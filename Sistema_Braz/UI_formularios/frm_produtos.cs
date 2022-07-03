@@ -39,8 +39,8 @@ namespace Sistema_Braz.UI_formularios
 
         private void button_cadastro_Click(object sender, EventArgs e)
         {
-            // user_BLL usr = user.GETID_user(frm_login.logado);
-            //  bll.user_add = usr.id;
+             user_BLL usr = user.GETID_user(frm_login.logado);
+              bll.user_add = usr.id;
             categorias_BLL cat = cat_dal.GETID_cat(comboBox_categoria.Text);
             bll.nome = textBox_nome.Text;
             bll.categoria = cat.id;
@@ -48,10 +48,6 @@ namespace Sistema_Braz.UI_formularios
             bll.quantidade = 0;
             bll.avaliacao = decimal.Parse(textBox_avaliacao.Text);
             bll.data_add = DateTime.Now;
-
-
-            user_BLL usr = user.GETID_user(frm_login.logado);
-            bll.user_add = usr.id;
             bool sucesso = dal.Insert(bll);
             if (sucesso)
             {

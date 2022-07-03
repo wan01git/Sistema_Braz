@@ -24,7 +24,7 @@ namespace Sistema_Braz.DAL_Classes
             try
             {
                 string sql = "INSERT INTO Table_transacao2(tipo,id_cliente,total,data_trasacao,imposto,desconto,data_add,user_add)" +
-                    " VALUES (@tipo,@id_cliente,@total,@data_trasacao,@imposto,@desconto,@data_add,@user_add)";
+                    " VALUES (@tipo,@id_cliente,@total,@data_trasacao,@imposto,@desconto,@data_add,@user_add);SELECT @@IDENTIFY";
                 SqlCommand cmd = new SqlCommand(sql, conexao);
                 cmd.Parameters.AddWithValue("@tipo", t.tipo);
                 cmd.Parameters.AddWithValue("@id_cliente", t.cliente_id);

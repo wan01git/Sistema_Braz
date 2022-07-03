@@ -41,7 +41,7 @@ namespace Sistema_Braz.UI_formularios
                 if (sucesso == true)
                 {
         
-                    MessageBox.Show("Login realizado com suceso", "login");
+                    MessageBox.Show("Login realizado com sucesso", "login");
                     switch (login_bll.adm)
                     {
                         case "Usuário":

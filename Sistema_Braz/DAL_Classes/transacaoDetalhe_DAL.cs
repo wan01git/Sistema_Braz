@@ -22,10 +22,11 @@ namespace Sistema_Braz.DAL_Classes
             SqlConnection conexao = new SqlConnection(myconnstring);
             try
             {
-                string sql = "INSERT INTO Table_transacao_det(id_produto,quantidade,total,id_cliente,data_add,user_add)" +
-                    " VALUES (@id_produto,@quantidade,@total,@id_cliente,@data_add,@user_add)";
+                string sql = "INSERT INTO Table_transacao_det(id_produto,avaliacao,quantidade,total,id_cliente,data_add,user_add)" +
+                    " VALUES (@id_produto,@avaliacao,@quantidade,@total,@id_cliente,@data_add,@user_add); SELECT @@IDENTITY";
                 SqlCommand cmd = new SqlCommand(sql, conexao);
                 cmd.Parameters.AddWithValue("@id_produto", td.id_produto);
+                cmd.Parameters.AddWithValue("@avaliacao", td.avaliacao);
                 cmd.Parameters.AddWithValue("@quantidade", td.quantidade);
                 cmd.Parameters.AddWithValue("@total", td.total);
                 cmd.Parameters.AddWithValue("@id_cliente", td.cliente_id);

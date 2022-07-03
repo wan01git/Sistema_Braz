@@ -188,7 +188,7 @@ namespace Sistema_Braz.DAL_Classes
 
             try
             {
-                string sql = "SELECT id from Table_usuario where nome= '" + nome + "' ";
+                string sql = "SELECT id from Table_usuario WHERE nome= '"+nome +"'";
                 SqlCommand cmd = new SqlCommand(sql, conexao);
                 SqlDataAdapter adaptar = new SqlDataAdapter(cmd);
                 conexao.Open();

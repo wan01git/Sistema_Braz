@@ -23,7 +23,7 @@ namespace Sistema_Braz.UI_formularios
         DataTable tabela = new DataTable();
         Transacao_DAL transacao_DAL = new Transacao_DAL();
         transacaoDetalhe_DAL transacaoDetalhe_DAL = new transacaoDetalhe_DAL();
-        transacao_detalhe_BLL transacaoDetalhe_BLL = new transacao_detalhe_BLL();
+        user_DAL user = new user_DAL();
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -55,7 +55,7 @@ namespace Sistema_Braz.UI_formularios
                 textBox_produto_avaliacao.Clear();
                 return;
             }
-             produtos_BLL produto = produto_dal.Pesquisar_produto_transacao(keyword);
+             produtos_BLL produto = produto_dal.Pesquisar_produto(keyword);
             if (produto.nome != null)
             {
                 textBox_produto_nome.Text = produto.nome.ToString();
@@ -95,6 +95,7 @@ namespace Sistema_Braz.UI_formularios
                 textBox_SubTotal.Text = subtotal.ToString();
                 textBox_ValorTotal.Text = subtotal.ToString();
             }
+            textBox_produto_quantidade.Text = "1";
         }
 
         private void textBox_Desconto_TextChanged(object sender, EventArgs e)
@@ -148,13 +149,15 @@ namespace Sistema_Braz.UI_formularios
         {
             Transacao_BLL transacao_BLL = new Transacao_BLL();
             transacao_BLL.tipo = "Venda";
-            transacao_BLL.cliente_id = transacao_BLL.id;
+            transacao_BLL.cliente_id = 66;
             transacao_BLL.total = Math.Round(decimal.Parse(textBox_ValorTotal.Text),2);
             transacao_BLL.data_transacao = DateTime.Now;
+            transacao_BLL.data_add = DateTime.Now;
             transacao_BLL.imposto = decimal.Parse(textBox_Imposto.Text);
             transacao_BLL.desconto = decimal.Parse(textBox_Desconto.Text);
-            transacao_BLL.user_add = int.Parse(frm_login.logado.ToString());
-
+            user_BLL usr = user.GETID_user(frm_login.logado);
+            transacao_BLL.user_add = usr.id;
+            transacao_BLL.transacaoDetalhes = tabela;
             bool sucesso = false;
 
             using (TransactionScope scope = new TransactionScope())
@@ -163,8 +166,32 @@ namespace Sistema_Braz.UI_formularios
                 bool w = transacao_DAL.Insert(transacao_BLL, out transacao_id);
                 for (int i = 0; i < tabela.Rows.Count; i++)
                 {
+                    transacao_detalhe_BLL transacao_Det_BLL = new transacao_detalhe_BLL();
                     produtos_BLL produtos_BLL = produto_dal.Pesquisar_produto_transacao(tabela.Rows[i][0].ToString());
-                    transacaoDetalhe_BLL.id_produto = produtos_BLL.id;
+                    transacao_Det_BLL.id_produto = produtos_BLL.id;
+                    transacao_Det_BLL.avaliacao = decimal.Parse(tabela.Rows[i][1].ToString());
+                    transacao_Det_BLL.quantidade = int.Parse(tabela.Rows[i][2].ToString());
+                    transacao_Det_BLL.total = Math.Round(decimal.Parse(tabela.Rows[i][3].ToString()),2);
+
+                    transacao_Det_BLL.cliente_id = 66;
+                    transacao_Det_BLL.data_add = DateTime.Now;
+                    transacao_Det_BLL.user_add = usr.id;
+
+                    bool y = transacaoDetalhe_DAL.Insert(transacao_Det_BLL);
+                    sucesso = w && y;
+
+                    if (sucesso== true)
+                    {
+                        scope.Complete();
+                        MessageBox.Show("Dados salvo com sucesso!");
+                        dataGridView_produtos.DataSource = null;
+                        dataGridView_produtos.Rows.Clear();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possivel salvar os dados!");
+                    }
 
                 }
             }
