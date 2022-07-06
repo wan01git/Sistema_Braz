@@ -267,6 +267,7 @@
             this.Name = "frm_categorias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_categorias";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frm_categorias_FormClosed);
             this.Load += new System.EventHandler(this.frm_categorias_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_categorias)).EndInit();
             this.panel1.ResumeLayout(false);

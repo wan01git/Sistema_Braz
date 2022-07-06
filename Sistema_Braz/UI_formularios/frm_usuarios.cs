@@ -171,5 +171,10 @@ namespace Sistema_Braz.UI_formularios
                
 
         }
+
+        private void frm_usuarios_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

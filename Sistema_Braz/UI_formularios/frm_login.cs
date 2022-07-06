@@ -85,7 +85,7 @@ namespace Sistema_Braz.UI_formularios
 
         private void frm_login_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void comboBox_adm_SelectedIndexChanged(object sender, EventArgs e)

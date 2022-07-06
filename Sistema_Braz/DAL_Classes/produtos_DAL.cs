@@ -87,7 +87,7 @@ namespace Sistema_Braz.DAL_Classes
             try
             {
 
-                string sql = "UPDATE Table_produto SET nome=@nome,categoria=@categoria,descricao=@descricao,avaliacao=@avaliacao,data_add=@data_add,user_add=@user_add where id=@id";
+                string sql = "UPDATE Table_produto SET nome=@nome,categoria=@categoria,descricao=@descricao,avaliacao=@avaliacao,quantidade=@quantidade,data_add=@data_add,user_add=@user_add where id=@id";
                 SqlCommand cmd = new SqlCommand(sql, conexao);
                 cmd.Parameters.AddWithValue("@id", p.id);
                 cmd.Parameters.AddWithValue("@nome", p.nome);
@@ -234,6 +234,91 @@ namespace Sistema_Braz.DAL_Classes
                 conexao.Close();
             }
             return produtos_BLL;
+        }
+        public int GetProdutoQtd(int id_produto)
+        {
+            SqlConnection conexao = new SqlConnection(myconnstring);
+            int quantidade = 0;
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "select quantidade FROM Table_produto WHERE id="+id_produto;
+                SqlCommand cmd = new SqlCommand(sql, conexao);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conexao.Open();
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                    quantidade = int.Parse(dt.Rows[0]["quantidade"].ToString());
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+            finally
+            {
+                conexao.Close();
+
+            }
+            return quantidade;
+        }
+
+        public bool updateQtd(int id_produto, int quantidade)
+        {
+            bool sucesso = false;
+            SqlConnection conexao = new SqlConnection(myconnstring);
+         
+            try
+            {
+                string sql = "update Table_produto set quantidade=@quantidade WHERE id=@id";
+                SqlCommand cmd = new SqlCommand(sql, conexao);
+                cmd.Parameters.AddWithValue("@quantidade", quantidade);
+                cmd.Parameters.AddWithValue("@id", id_produto);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conexao.Open(); 
+                int rows = cmd.ExecuteNonQuery();
+                if (rows > 0)
+                    sucesso = true;
+                else
+                    sucesso = false;
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+            finally
+            {
+                conexao.Close();
+
+            }
+            return sucesso;
+        }
+
+
+
+        public bool removeProduto(int id_produto, int quantidade)
+        {
+            bool sucesso = false;
+            SqlConnection conexao = new SqlConnection(myconnstring);
+
+            try
+            {
+                int correnteQtd = GetProdutoQtd(id_produto);
+                int novaQtd = correnteQtd - quantidade;
+                sucesso = updateQtd(id_produto, novaQtd);
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+            finally
+            {
+                conexao.Close();
+
+            }
+            return sucesso;
         }
     }
 }

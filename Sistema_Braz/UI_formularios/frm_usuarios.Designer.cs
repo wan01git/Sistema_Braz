@@ -433,6 +433,7 @@
             this.Name = "frm_usuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formulário de usuarios";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frm_usuarios_FormClosed);
             this.Load += new System.EventHandler(this.frm_usuarios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

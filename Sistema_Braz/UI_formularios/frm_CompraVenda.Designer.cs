@@ -529,6 +529,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frm_CompraVenda";
             this.Text = "CompraVenda";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frm_CompraVenda_FormClosed);
             this.Load += new System.EventHandler(this.frm_CompraVenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_produtos)).EndInit();
             this.panel1.ResumeLayout(false);

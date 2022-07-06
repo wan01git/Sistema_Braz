@@ -47,6 +47,8 @@
             this.label_adm = new System.Windows.Forms.Label();
             this.textBox_avaliacao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.textBox_quantidade = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_produtos)).BeginInit();
             this.SuspendLayout();
@@ -97,7 +99,7 @@
             this.label_email.AutoSize = true;
             this.label_email.BackColor = System.Drawing.Color.Transparent;
             this.label_email.Font = new System.Drawing.Font("Monospac821 BT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_email.Location = new System.Drawing.Point(12, 264);
+            this.label_email.Location = new System.Drawing.Point(12, 304);
             this.label_email.Name = "label_email";
             this.label_email.Size = new System.Drawing.Size(109, 22);
             this.label_email.TabIndex = 45;
@@ -238,7 +240,7 @@
             this.textBox_descricao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_descricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBox_descricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_descricao.Location = new System.Drawing.Point(213, 267);
+            this.textBox_descricao.Location = new System.Drawing.Point(213, 307);
             this.textBox_descricao.Multiline = true;
             this.textBox_descricao.Name = "textBox_descricao";
             this.textBox_descricao.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -317,6 +319,35 @@
             this.label2.TabIndex = 52;
             this.label2.Text = "Avaliação";
             // 
+            // textBox_quantidade
+            // 
+            this.textBox_quantidade.AcceptsReturn = true;
+            this.textBox_quantidade.AcceptsTab = true;
+            this.textBox_quantidade.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_quantidade.BackColor = System.Drawing.Color.LightCyan;
+            this.textBox_quantidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox_quantidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox_quantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_quantidade.Location = new System.Drawing.Point(213, 264);
+            this.textBox_quantidade.Name = "textBox_quantidade";
+            this.textBox_quantidade.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBox_quantidade.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox_quantidade.Size = new System.Drawing.Size(266, 21);
+            this.textBox_quantidade.TabIndex = 55;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Monospac821 BT", 14F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(12, 266);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 22);
+            this.label3.TabIndex = 54;
+            this.label3.Text = "Quantidade";
+            // 
             // frm_produtos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,6 +355,8 @@
             this.BackgroundImage = global::Sistema_Braz.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(992, 651);
+            this.Controls.Add(this.textBox_quantidade);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox_avaliacao);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox_categoria);
@@ -375,5 +408,7 @@
         private System.Windows.Forms.Label label_adm;
         private System.Windows.Forms.TextBox textBox_avaliacao;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox_quantidade;
+        private System.Windows.Forms.Label label3;
     }
 }

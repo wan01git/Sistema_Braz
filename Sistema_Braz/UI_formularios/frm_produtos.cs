@@ -45,7 +45,7 @@ namespace Sistema_Braz.UI_formularios
             bll.nome = textBox_nome.Text;
             bll.categoria = cat.id;
             bll.descricao = textBox_descricao.Text;
-            bll.quantidade = 0;
+            bll.quantidade = int.Parse(textBox_quantidade.Text);
             bll.avaliacao = decimal.Parse(textBox_avaliacao.Text);
             bll.data_add = DateTime.Now;
             bool sucesso = dal.Insert(bll);
@@ -64,6 +64,8 @@ namespace Sistema_Braz.UI_formularios
             textBox_doID.Clear();
             textBox_descricao.Clear();
             textBox_nome.Clear();
+            textBox_quantidade.Clear();
+            textBox_avaliacao.Clear();
 
         }
 
@@ -75,6 +77,7 @@ namespace Sistema_Braz.UI_formularios
             comboBox_categoria.Text = dataGridView_produtos.Rows[rowIndex].Cells[2].Value.ToString();
             textBox_descricao.Text = dataGridView_produtos.Rows[rowIndex].Cells[3].Value.ToString();
             textBox_avaliacao.Text = dataGridView_produtos.Rows[rowIndex].Cells[4].Value.ToString();
+            textBox_quantidade.Text = dataGridView_produtos.Rows[rowIndex].Cells[5].Value.ToString();
         }
 
         private void button_atualizar_Click(object sender, EventArgs e)
@@ -85,6 +88,7 @@ namespace Sistema_Braz.UI_formularios
             bll.categoria = cat.id;
             bll.descricao = textBox_descricao.Text;
             bll.avaliacao = decimal.Parse(textBox_avaliacao.Text);
+            bll.quantidade = int.Parse(textBox_quantidade.Text);
             bll.data_add = DateTime.Now;
             user_BLL usr = user.GETID_user(frm_login.logado);
             bll.user_add = usr.id;

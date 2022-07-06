@@ -138,7 +138,7 @@ namespace Sistema_Braz.UI_formularios
 
         private void textBox_TotalPago_TextChanged(object sender, EventArgs e)
         {
-            decimal subtotal = decimal.Parse(textBox_SubTotal.Text);
+            decimal subtotal = decimal.Parse(textBox_ValorTotal.Text);
             decimal pago = 0;
             if (textBox_TotalPago.Text != "")
              pago = decimal.Parse(textBox_TotalPago.Text);
@@ -171,21 +171,21 @@ namespace Sistema_Braz.UI_formularios
                     transacao_Det_BLL.id_produto = produtos_BLL.id;
                     transacao_Det_BLL.avaliacao = decimal.Parse(tabela.Rows[i][1].ToString());
                     transacao_Det_BLL.quantidade = int.Parse(tabela.Rows[i][2].ToString());
-                    transacao_Det_BLL.total = Math.Round(decimal.Parse(tabela.Rows[i][3].ToString()),2);
-
+                    transacao_Det_BLL.total = Math.Round(decimal.Parse(tabela.Rows[i][3].ToString()), 2);
                     transacao_Det_BLL.cliente_id = 66;
                     transacao_Det_BLL.data_add = DateTime.Now;
                     transacao_Det_BLL.user_add = usr.id;
-
                     bool y = transacaoDetalhe_DAL.Insert(transacao_Det_BLL);
                     sucesso = w && y;
-
+                    produto_dal.removeProduto(transacao_Det_BLL.id_produto, transacao_Det_BLL.quantidade);
+                }
                     if (sucesso== true)
                     {
                         scope.Complete();
                         MessageBox.Show("Dados salvo com sucesso!");
                         dataGridView_produtos.DataSource = null;
                         dataGridView_produtos.Rows.Clear();
+                        
 
                     }
                     else
@@ -193,8 +193,12 @@ namespace Sistema_Braz.UI_formularios
                         MessageBox.Show("Não foi possivel salvar os dados!");
                     }
 
-                }
             }
+        }
+
+        private void frm_CompraVenda_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
         }
     }
 }
