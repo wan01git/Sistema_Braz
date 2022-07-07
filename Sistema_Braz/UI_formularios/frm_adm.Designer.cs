@@ -74,12 +74,12 @@
             this.menu_principal.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.menu_principal.Font = new System.Drawing.Font("Roboto Lt", 11F, System.Drawing.FontStyle.Bold);
             this.menu_principal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.compraToolStripMenuItem,
             this.usuáriosToolStripMenuItem,
             this.categoriaToolStripMenuItem,
             this.produtosToolStripMenuItem,
             this.inventárioToolStripMenuItem,
-            this.transaçõesToolStripMenuItem});
+            this.transaçõesToolStripMenuItem,
+            this.compraToolStripMenuItem});
             this.menu_principal.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menu_principal.Location = new System.Drawing.Point(0, 0);
             this.menu_principal.Name = "menu_principal";
@@ -127,6 +127,7 @@
             this.transaçõesToolStripMenuItem.Name = "transaçõesToolStripMenuItem";
             this.transaçõesToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.transaçõesToolStripMenuItem.Text = "Transações";
+            this.transaçõesToolStripMenuItem.Click += new System.EventHandler(this.transaçõesToolStripMenuItem_Click);
             // 
             // label_usuario
             // 

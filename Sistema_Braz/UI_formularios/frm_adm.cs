@@ -68,5 +68,11 @@ namespace Sistema_Braz
             frm_CompraVenda compraVenda = new frm_CompraVenda();
             compraVenda.Show();
         }
+
+        private void transaçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_transacao transacao = new frm_transacao();
+            transacao.Show();
+        }
     }
 }

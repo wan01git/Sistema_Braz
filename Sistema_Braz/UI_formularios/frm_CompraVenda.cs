@@ -1,4 +1,5 @@
-﻿using Sistema_Braz.BLL_Classes;
+﻿using DGVPrinterHelper;
+using Sistema_Braz.BLL_Classes;
 using Sistema_Braz.DAL_Classes;
 using System;
 using System.Collections.Generic;
@@ -182,6 +183,20 @@ namespace Sistema_Braz.UI_formularios
                     if (sucesso== true)
                     {
                         scope.Complete();
+
+                        DGVPrinter printer = new DGVPrinter();
+                    printer.Title = "\r\n\nBn Morais Ferro Velho Oeste LTDA";
+                    printer.SubTitle = "Telefone: (62) 3225-2011";
+                    printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+                    printer.PageNumbers = true;
+                    printer.PageNumberInHeader = false;
+                    printer.PorportionalColumns = true;
+                    printer.HeaderCellAlignment = StringAlignment.Near;
+                    printer.Footer = "Desconto: " + textBox_Desconto.Text + "% \r\n" + "Imposto: " + textBox_Imposto.Text +
+                        "% \r\n" + "Valor Total: " + textBox_ValorTotal.Text + "  \r\n" + "Obrigado por comprar conosco.!";
+                    printer.FooterSpacing = 15;
+                    printer.PrintDataGridView(dataGridView_produtos);
+
                         MessageBox.Show("Dados salvo com sucesso!");
                         dataGridView_produtos.DataSource = null;
                         dataGridView_produtos.Rows.Clear();

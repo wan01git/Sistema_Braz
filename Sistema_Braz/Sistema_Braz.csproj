@@ -55,6 +55,7 @@
     <Compile Include="BLL_Classes\transacao_detalhe_BLL.cs" />
     <Compile Include="BLL_Classes\user_BLL.cs" />
     <Compile Include="DAL_Classes\categorias_DAL.cs" />
+    <Compile Include="DAL_Classes\DGVPrinter.cs" />
     <Compile Include="DAL_Classes\transacaoDetalhe_DAL.cs" />
     <Compile Include="DAL_Classes\Transacao_DAL.cs" />
     <Compile Include="DAL_Classes\Login_DAL.cs" />
@@ -90,6 +91,12 @@
     <Compile Include="UI_formularios\frm_produtos.Designer.cs">
       <DependentUpon>frm_produtos.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI_formularios\frm_transacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_formularios\frm_transacao.Designer.cs">
+      <DependentUpon>frm_transacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI_formularios\frm_usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI_formularios\frm_produtos.resx">
       <DependentUpon>frm_produtos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_formularios\frm_transacao.resx">
+      <DependentUpon>frm_transacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_formularios\frm_usuarios.resx">
       <DependentUpon>frm_usuarios.cs</DependentUpon>
