@@ -36,5 +36,11 @@ namespace Sistema_Braz
         {
             label_usuario.Text = frm_login.logado.ToString();
         }
+
+        private void inventárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_inventario frm_Inventario = new frm_inventario();
+            frm_Inventario.Show();
+        }
     }
 }

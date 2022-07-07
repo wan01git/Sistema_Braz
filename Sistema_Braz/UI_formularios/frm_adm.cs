@@ -74,5 +74,11 @@ namespace Sistema_Braz
             frm_transacao transacao = new frm_transacao();
             transacao.Show();
         }
+
+        private void inventárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_inventario inventario = new frm_inventario();
+            inventario.Show();
+        }
     }
 }

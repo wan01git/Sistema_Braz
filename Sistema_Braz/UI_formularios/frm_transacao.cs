@@ -40,5 +40,11 @@ namespace Sistema_Braz.UI_formularios
             DataTable dt = transacaoDAL.mostrarTransacaoPorData(textBox_pesquisar.Text);
             dataGridView_transacao.DataSource = dt;
         }
+
+        private void button_busca_Click(object sender, EventArgs e)
+        {
+                DataTable dt = transacaoDAL.mostrarTransacao();
+                dataGridView_transacao.DataSource = dt;
+        }
     }
 }

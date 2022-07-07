@@ -30,7 +30,6 @@
         {
             this.menuStrip_usuario = new System.Windows.Forms.MenuStrip();
             this.comprarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formularioDeVendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label_usuario = new System.Windows.Forms.Label();
             this.label_ola = new System.Windows.Forms.Label();
@@ -43,7 +42,6 @@
             this.menuStrip_usuario.Font = new System.Drawing.Font("Roboto Lt", 9.75F, System.Drawing.FontStyle.Bold);
             this.menuStrip_usuario.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.comprarToolStripMenuItem,
-            this.formularioDeVendasToolStripMenuItem,
             this.inventárioToolStripMenuItem});
             this.menuStrip_usuario.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_usuario.Name = "menuStrip_usuario";
@@ -59,17 +57,12 @@
             this.comprarToolStripMenuItem.Text = "Venda";
             this.comprarToolStripMenuItem.Click += new System.EventHandler(this.comprarToolStripMenuItem_Click);
             // 
-            // formularioDeVendasToolStripMenuItem
-            // 
-            this.formularioDeVendasToolStripMenuItem.Name = "formularioDeVendasToolStripMenuItem";
-            this.formularioDeVendasToolStripMenuItem.Size = new System.Drawing.Size(163, 20);
-            this.formularioDeVendasToolStripMenuItem.Text = "Formulario de vendas";
-            // 
             // inventárioToolStripMenuItem
             // 
             this.inventárioToolStripMenuItem.Name = "inventárioToolStripMenuItem";
             this.inventárioToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.inventárioToolStripMenuItem.Text = "inventário";
+            this.inventárioToolStripMenuItem.Click += new System.EventHandler(this.inventárioToolStripMenuItem_Click);
             // 
             // label_usuario
             // 
@@ -122,7 +115,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip_usuario;
         private System.Windows.Forms.ToolStripMenuItem comprarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formularioDeVendasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inventárioToolStripMenuItem;
         private System.Windows.Forms.Label label_usuario;
         private System.Windows.Forms.Label label_ola;

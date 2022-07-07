@@ -97,6 +97,7 @@ namespace Sistema_Braz.UI_formularios
                 textBox_ValorTotal.Text = subtotal.ToString();
             }
             textBox_produto_quantidade.Text = "1";
+            textBox_pesquisar_produto.Clear();
         }
 
         private void textBox_Desconto_TextChanged(object sender, EventArgs e)
@@ -156,6 +157,8 @@ namespace Sistema_Braz.UI_formularios
             transacao_BLL.data_add = DateTime.Now;
             transacao_BLL.imposto = decimal.Parse(textBox_Imposto.Text);
             transacao_BLL.desconto = decimal.Parse(textBox_Desconto.Text);
+            transacao_BLL.pago= decimal.Parse(textBox_TotalPago.Text);
+            transacao_BLL.troco= decimal.Parse(textBox_Troco.Text);
             user_BLL usr = user.GETID_user(frm_login.logado);
             transacao_BLL.user_add = usr.id;
             transacao_BLL.transacaoDetalhes = tabela;
@@ -200,6 +203,13 @@ namespace Sistema_Braz.UI_formularios
                         MessageBox.Show("Dados salvo com sucesso!");
                         dataGridView_produtos.DataSource = null;
                         dataGridView_produtos.Rows.Clear();
+
+                        textBox_Desconto.Clear();
+                        textBox_Imposto.Clear();
+                        textBox_SubTotal.Clear();
+                        textBox_TotalPago.Clear();
+                        textBox_Troco.Clear();
+                        textBox_ValorTotal.Clear();
                         
 
                     }

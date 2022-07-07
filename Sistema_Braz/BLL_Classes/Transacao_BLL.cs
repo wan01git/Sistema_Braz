@@ -16,6 +16,11 @@ namespace Sistema_Braz.BLL_Classes
         public DateTime data_transacao { get; set; }
         public decimal imposto { get; set; }
         public decimal desconto { get; set; }
+
+        public decimal pago { get; set; }
+
+        public decimal troco { get; set; }
+
         public DateTime data_add { get; set; }
         public int user_add { get; set; }
 

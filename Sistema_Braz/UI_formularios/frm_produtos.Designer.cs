@@ -190,6 +190,7 @@
             this.dataGridView_produtos.Name = "dataGridView_produtos";
             this.dataGridView_produtos.Size = new System.Drawing.Size(422, 503);
             this.dataGridView_produtos.TabIndex = 39;
+            this.dataGridView_produtos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_produtos_CellContentClick);
             this.dataGridView_produtos.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_produtos_RowHeaderMouseClick);
             // 
             // button_delete

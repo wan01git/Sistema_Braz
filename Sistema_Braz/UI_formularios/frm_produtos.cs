@@ -146,5 +146,10 @@ namespace Sistema_Braz.UI_formularios
                 dataGridView_produtos.DataSource = dt;
             }
         }
+
+        private void dataGridView_produtos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

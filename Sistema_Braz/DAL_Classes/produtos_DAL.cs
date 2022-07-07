@@ -320,5 +320,29 @@ namespace Sistema_Braz.DAL_Classes
             }
             return sucesso;
         }
+
+        public DataTable mostrarProdutosAll()
+        {
+            SqlConnection conexao = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = "select * FROM Table_produto";
+                SqlCommand cmd = new SqlCommand(sql, conexao);
+                SqlDataAdapter adaptar = new SqlDataAdapter(cmd);
+                conexao.Open();
+                adaptar.Fill(dt);
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message);
+            }
+            finally
+            {
+                conexao.Close();
+            }
+            return dt;
+        }
     }
 }

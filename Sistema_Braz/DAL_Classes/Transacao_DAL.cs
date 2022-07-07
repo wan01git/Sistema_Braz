@@ -23,8 +23,8 @@ namespace Sistema_Braz.DAL_Classes
             transacao_id = -1;
             try
             {
-                string sql = "INSERT INTO Table_transacao2(tipo,id_cliente,total,data_trasacao,imposto,desconto,data_add,user_add)" +
-                    " VALUES (@tipo,@id_cliente,@total,@data_trasacao,@imposto,@desconto,@data_add,@user_add);SELECT @@IDENTITY";
+                string sql = "INSERT INTO Table_transacao2(tipo,id_cliente,total,data_trasacao,imposto,desconto,pago,troco,data_add,user_add)" +
+                    " VALUES (@tipo,@id_cliente,@total,@data_trasacao,@imposto,@desconto,@pago,@troco,@data_add,@user_add);SELECT @@IDENTITY";
                 SqlCommand cmd = new SqlCommand(sql, conexao);
                 cmd.Parameters.AddWithValue("@tipo", t.tipo);
                 cmd.Parameters.AddWithValue("@id_cliente", t.cliente_id);
@@ -32,6 +32,8 @@ namespace Sistema_Braz.DAL_Classes
                 cmd.Parameters.AddWithValue("@data_trasacao",t.data_transacao);
                 cmd.Parameters.AddWithValue("@imposto", t.imposto);
                 cmd.Parameters.AddWithValue("@desconto", t.desconto);
+                cmd.Parameters.AddWithValue("@pago", t.pago);
+                cmd.Parameters.AddWithValue("@troco", t.troco);
                 cmd.Parameters.AddWithValue("@data_add", t.data_add); 
                 cmd.Parameters.AddWithValue("@user_add", t.user_add);
 
@@ -89,7 +91,7 @@ namespace Sistema_Braz.DAL_Classes
             DataTable dt = new DataTable();
             try
             {
-                string sql = "select * FROM Table_transacao2 where data_transacao= '"+data+"'";
+                string sql = "Select * from Table_transacao2 WHERE id LIKE '%" + data + "%'";
                 SqlCommand cmd = new SqlCommand(sql, conexao);
                 SqlDataAdapter adaptar = new SqlDataAdapter(cmd);
                 conexao.Open();
