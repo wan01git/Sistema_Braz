@@ -176,7 +176,7 @@ namespace Sistema_Braz.UI_formularios
                     transacao_Det_BLL.avaliacao = decimal.Parse(tabela.Rows[i][1].ToString());
                     transacao_Det_BLL.quantidade = int.Parse(tabela.Rows[i][2].ToString());
                     transacao_Det_BLL.total = Math.Round(decimal.Parse(tabela.Rows[i][3].ToString()), 2);
-                    transacao_Det_BLL.cliente_id = 66;
+                    transacao_Det_BLL.cliente_id = transacao_id;
                     transacao_Det_BLL.data_add = DateTime.Now;
                     transacao_Det_BLL.user_add = usr.id;
                     bool y = transacaoDetalhe_DAL.Insert(transacao_Det_BLL);
